@@ -1,0 +1,16 @@
+{
+  "context": [
+    {"role": "user", "content": "[your user message]"},
+    {"role": "assistant", "content": "[assistant response]"},
+    {"role": "user", "content": "[follow-up if needed]"}
+  ],
+  "scratchpad": "[notes, constraints, or empty string]",
+  "instruction": "Provide a software design suggestion based on the given context.",
+  "output": "[your design suggestion - be specific!]"
+}
+{
+  "context": [],
+  "scratchpad": "",
+  "instruction": "Provide a software design suggestion based on the given context.",
+  "output": ""
+}

@@ -1,0 +1,50 @@
+{
+  "context": [
+    {"role": "user", "content": "I'm building a mobile app that needs to work offline."},
+    {"role": "assistant", "content": "What features need offline access?"},
+    {"role": "user", "content": "Users should be able to create and edit tasks even without internet."}
+  ],
+  "scratchpad": "Prioritize data integrity, sync conflicts are a concern",
+  "instruction": "Provide a software design suggestion based on the given context.",
+  "output": "Implement local SQLite database with CRUD operations. Use a background sync service that queues changes and applies them when online. Add conflict resolution with last-write-wins or merge strategies."
+}
+{
+  "context": [
+    {"role": "user", "content": "I need to add search functionality to my app."},
+    {"role": "assistant", "content": "What are you searching through?"},
+    {"role": "user", "content": "I have thousands of user profiles and need fast search."}
+  ],
+  "scratchpad": "Must handle typos, fuzzy matching would be good",
+  "instruction": "Provide a software design suggestion based on the given context.",
+  "output": "Use Elasticsearch with fuzzy matching and n-gram tokenization. Index user profiles with searchable fields. Implement caching for frequent queries to reduce load."
+}
+{
+  "context": [
+    {"role": "user", "content": "I'm designing an authentication system."},
+    {"role": "assistant", "content": "What security requirements do you have?"},
+    {"role": "user", "content": "Need secure login, session management, and protect against brute force."}
+  ],
+  "scratchpad": "Security is top priority, need audit logging",
+  "instruction": "Provide a software design suggestion based on the given context.",
+  "output": "Implement OAuth2 with JWT tokens. Use rate limiting on login endpoints (e.g., 5 attempts per IP per minute). Store sessions in Redis with expiration. Log all authentication events for auditing."
+}
+{
+  "context": [
+    {"role": "user", "content": "My API is getting slow with more users."},
+    {"role": "assistant", "content": "What's the bottleneck?"},
+    {"role": "user", "content": "Database queries are taking too long, especially when fetching user data."}
+  ],
+  "scratchpad": "Need to scale horizontally if possible",
+  "instruction": "Provide a software design suggestion based on the given context.",
+  "output": "Add database indexes on frequently queried columns (user_id, created_at). Implement Redis caching layer for user data with TTL. Consider read replicas to distribute query load."
+}
+{
+  "context": [
+    {"role": "user", "content": "I want to add real-time notifications."},
+    {"role": "assistant", "content": "What events trigger notifications?"},
+    {"role": "user", "content": "When a user's task is updated by someone else, they should get notified instantly."}
+  ],
+  "scratchpad": "WebSocket or polling? Need to support 1000+ concurrent connections",
+  "instruction": "Provide a software design suggestion based on the given context.",
+  "output": "Use WebSocket connections per user session. Publish events to Redis pub/sub when tasks update. WebSocket server subscribes and pushes to connected clients. Implement reconnection logic for dropped connections."
+}
